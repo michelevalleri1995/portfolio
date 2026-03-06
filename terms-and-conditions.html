@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termini e Condizioni — Michele Valleri</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { cursor: none; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --accent: #ff4d1c;
+    --muted: #2a2a2a;
+    --border: #1e1e1e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,77,28,0.4);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+  }
+  body:has(a:hover) .cursor, body:has(button:hover) .cursor {
+    width: 20px; height: 20px;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 4rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--white);
+  }
+  .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 2.5rem; list-style: none; }
+  nav a {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(245,240,232,0.5);
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--white); }
+
+  .back-link {
+    display: inline-block;
+    margin: 6rem 4rem 2rem;
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 4rem 6rem;
+  }
+  .legal-content h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+  .legal-content h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--white);
+  }
+  .legal-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.75);
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin: 1rem 0 1rem 1.5rem;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.8;
+  }
+
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.3);
+  }
+  footer a {
+    color: rgba(245,240,232,0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    nav ul { display: none; }
+    .back-link { margin: 5rem 2rem 1.5rem; }
+    .legal-content { padding: 0 2rem 4rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="logo">michele<span>valleri</span>.</a>
+  <ul>
+    <li><a href="index.html#servizi">Servizi</a></li>
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#chi-sono">Chi sono</a></li>
+    <li><a href="index.html#contatti">Contatti</a></li>
+  </ul>
+</nav>
+
+<a href="index.html" class="back-link">← Torna al portfolio</a>
+
+<main class="legal-content">
+  <h1>Termini e Condizioni</h1>
+  <p>Ultimo aggiornamento: marzo 2026.</p>
+
+  <p>L’accesso e l’utilizzo del presente sito sono regolati dai seguenti termini e condizioni. Utilizzando il sito, l’utente accetta tali condizioni.</p>
+
+  <h2>Proprietà intellettuale</h2>
+  <p>Tutti i contenuti del sito (testi, grafiche, loghi, immagini, layout, codice e ogni altro materiale) sono di proprietà di <strong>Michele Valleri</strong> o sono utilizzati con le opportune autorizzazioni. È vietata la riproduzione, distribuzione, modifica o utilizzo non autorizzato senza previo consenso scritto del titolare.</p>
+
+  <h2>Finalità del sito</h2>
+  <p>Il sito ha finalità <strong>esclusivamente informative e di portfolio</strong>. Non costituisce un’offerta commerciale vincolante né un invito a contrarre, salvo diverso accordo scritto.</p>
+
+  <h2>Collegamenti esterni</h2>
+  <p>Il sito può contenere link a siti di terzi. Michele Valleri non esercita alcun controllo su tali siti e <strong>non assume responsabilità</strong> in merito ai contenuti, alla disponibilità o alle pratiche di privacy dei siti collegati. L’inserimento di link non implica approvazione dei relativi contenuti. L’accesso e l’utilizzo di siti esterni sono a rischio e responsabilità dell’utente.</p>
+
+  <h2>Limitazione di responsabilità</h2>
+  <p>Il sito è fornito “così com’è”. Nella misura consentita dalla legge applicabile, non si assume alcuna responsabilità per danni diretti o indiretti derivanti dall’accesso o dall’uso del sito o dall’impossibilità di accedervi.</p>
+
+  <h2>Legge applicabile e foro competente</h2>
+  <p>Per ogni controversia relativa al presente sito e ai presenti termini e condizioni si applica la <strong>legge italiana</strong>. È competente il foro del luogo di residenza o domicilio dell’utente, salvo che la legge non attribuisca competenza esclusiva al foro del titolare del sito.</p>
+
+  <h2>Modifiche</h2>
+  <p>Michele Valleri si riserva il diritto di modificare in qualsiasi momento i presenti termini e condizioni. Le modifiche saranno efficaci dalla pubblicazione su questa pagina. Si invita l’utente a consultare periodicamente la presente pagina.</p>
+
+  <h2>Contatti</h2>
+  <p>Per richieste relative ai termini e condizioni: <a href="mailto:michele.valleri1995@gmail.com" style="color: var(--accent);">michele.valleri1995@gmail.com</a>.</p>
+</main>
+
+<footer>
+  <div>© 2026 — Michele Valleri. Tutti i diritti riservati.</div>
+  <div>
+    <a href="index.html">Home</a>
+    · <a href="privacy-policy.html">Privacy Policy</a>
+    · <a href="cookie-policy.html">Cookie Policy</a>
+    · <a href="terms-and-conditions.html">Termini e Condizioni</a>
+  </div>
+</footer>
+
+<script>
+  var cursor = document.getElementById('cursor');
+  var ring = document.getElementById('cursor-ring');
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(function() {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
+  });
+  document.addEventListener('mouseenter', function() {
+    cursor.style.opacity = '1';
+    ring.style.opacity = '1';
+  });
+  document.addEventListener('mouseleave', function() {
+    cursor.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+</script>
+</body>
+</html>

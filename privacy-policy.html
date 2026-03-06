@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Michele Valleri</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { cursor: none; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --accent: #ff4d1c;
+    --muted: #2a2a2a;
+    --border: #1e1e1e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,77,28,0.4);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+  }
+  body:has(a:hover) .cursor, body:has(button:hover) .cursor {
+    width: 20px; height: 20px;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 4rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--white);
+  }
+  .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 2.5rem; list-style: none; }
+  nav a {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(245,240,232,0.5);
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--white); }
+
+  .back-link {
+    display: inline-block;
+    margin: 6rem 4rem 2rem;
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 4rem 6rem;
+  }
+  .legal-content h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+  .legal-content h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--white);
+  }
+  .legal-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.75);
+    margin-bottom: 1rem;
+  }
+  .legal-content ul {
+    margin: 1rem 0 1rem 1.5rem;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.8;
+  }
+
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.3);
+  }
+  footer a {
+    color: rgba(245,240,232,0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    nav ul { display: none; }
+    .back-link { margin: 5rem 2rem 1.5rem; }
+    .legal-content { padding: 0 2rem 4rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="logo">michele<span>valleri</span>.</a>
+  <ul>
+    <li><a href="index.html#servizi">Servizi</a></li>
+    <li><a href="index.html#portfolio">Portfolio</a></li>
+    <li><a href="index.html#chi-sono">Chi sono</a></li>
+    <li><a href="index.html#contatti">Contatti</a></li>
+  </ul>
+</nav>
+
+<a href="index.html" class="back-link">← Torna al portfolio</a>
+
+<main class="legal-content">
+  <h1>Privacy Policy</h1>
+  <p>Ultimo aggiornamento: marzo 2026.</p>
+
+  <p>La presente informativa descrive come vengono trattati i dati personali in conformità al Regolamento (UE) 2016/679 (GDPR) e alla normativa italiana sulla protezione dei dati personali (D.Lgs. 196/2003 e successive modifiche).</p>
+
+  <h2>Titolare del trattamento</h2>
+  <p>Il titolare del trattamento dei dati è <strong>Michele Valleri</strong>, contattabile all’indirizzo email: <a href="mailto:michele.valleri1995@gmail.com" style="color: var(--accent);">michele.valleri1995@gmail.com</a>.</p>
+
+  <h2>Dati raccolti</h2>
+  <p>Attraverso il modulo di contatto del sito vengono raccolti esclusivamente:</p>
+  <ul>
+    <li>Nome</li>
+    <li>Indirizzo email</li>
+    <li>Eventuale contenuto del messaggio</li>
+  </ul>
+
+  <h2>Finalità del trattamento</h2>
+  <p>I dati sono utilizzati esclusivamente per <strong>rispondere alle richieste di contatto</strong> inviate tramite il sito (portfolio) e per eventuali comunicazioni strettamente connesse alla richiesta dell’utente.</p>
+
+  <h2>Base giuridica</h2>
+  <p>Il trattamento è fondato sul consenso (art. 6, par. 1, lett. a) GDPR) e sull’esecuzione di misure precontrattali adottate su richiesta dell’interessato (art. 6, par. 1, lett. b) GDPR).</p>
+
+  <h2>Comunicazione e diffusione</h2>
+  <p>I dati non sono comunicati a terzi né diffusi. Non sono previsti trasferimenti verso Paesi extra UE.</p>
+
+  <h2>Conservazione</h2>
+  <p>I dati sono conservati per il tempo necessario a evadere la richiesta e, ove applicabile, per adempiere obblighi di legge. È possibile richiedere la cancellazione in qualsiasi momento.</p>
+
+  <h2>Diritti dell’interessato</h2>
+  <p>In conformità al GDPR, l’utente può esercitare i diritti di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità dei dati e opposizione, nonché proporre reclamo all’Autorità Garante per la protezione dei dati personali (Garante Privacy).</p>
+
+  <h2>Contatti</h2>
+  <p>Per ogni richiesta relativa ai dati personali è possibile scrivere a: <a href="mailto:michele.valleri1995@gmail.com" style="color: var(--accent);">michele.valleri1995@gmail.com</a>.</p>
+</main>
+
+<footer>
+  <div>© 2026 — Michele Valleri. Tutti i diritti riservati.</div>
+  <div>
+    <a href="index.html">Home</a>
+    · <a href="privacy-policy.html">Privacy Policy</a>
+    · <a href="cookie-policy.html">Cookie Policy</a>
+    · <a href="terms-and-conditions.html">Termini e Condizioni</a>
+  </div>
+</footer>
+
+<script>
+  var cursor = document.getElementById('cursor');
+  var ring = document.getElementById('cursor-ring');
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(function() {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
+  });
+  document.addEventListener('mouseenter', function() {
+    cursor.style.opacity = '1';
+    ring.style.opacity = '1';
+  });
+  document.addEventListener('mouseleave', function() {
+    cursor.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+</script>
+</body>
+</html>
