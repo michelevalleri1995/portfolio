@@ -475,11 +475,12 @@
   .contact-inner {
     border: 1px solid var(--border);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .contact-left {
     padding: 5rem;
-    border-right: 1px solid var(--border);
+    border-right: none;
+    text-align: center;
   }
   .contact-big {
     font-family: 'Syne', sans-serif;
@@ -496,7 +497,7 @@
     color: rgba(245,240,232,0.5);
     margin-bottom: 3rem;
   }
-  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
   .contact-link {
     display: flex; align-items: center; gap: 1rem;
     padding: 1.2rem 1.5rem;
@@ -578,7 +579,6 @@
     .about-grid { grid-template-columns: 1fr; }
     .contact-inner { grid-template-columns: 1fr; }
     .contact-left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 2rem; }
-    .contact-right { padding: 3rem 2rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
   }
 
@@ -833,7 +833,7 @@
             <div class="browser-url"></div>
           </div>
           <div class="browser-content" style="padding:0;overflow:hidden;">
-            <img src="img/mockup-fitness.svg" alt="ForgeFit Gym mockup" style="width:100%;height:auto;display:block;">
+            <img src="img/mockup-fitness.png" alt="ForgeFit Gym mockup" style="width:100%;height:auto;display:block;">
           </div>
         </div>
       </div>
@@ -861,7 +861,7 @@
             <div class="browser-url"></div>
           </div>
           <div class="browser-content" style="padding:0;overflow:hidden;">
-            <img src="img/mockup-fashion.svg" alt="Velour Studio mockup" style="width:100%;height:auto;display:block;">
+            <img src="img/mockup-fashion.png" alt="Velour Studio mockup" style="width:100%;height:auto;display:block;">
           </div>
         </div>
       </div>
@@ -943,25 +943,6 @@
           </div>
         </a>
       </div>
-    </div>
-    <div class="contact-right">
-      <form id="contact-form">
-        <div class="form-field">
-          <label>Nome</label>
-          <input type="text" name="nome" id="contact-nome" placeholder="Mario Rossi">
-        </div>
-        <div class="form-field">
-          <label>Email</label>
-          <input type="email" name="email" id="contact-email" placeholder="mario@esempio.it">
-        </div>
-        <div class="form-field">
-          <label>Di cosa hai bisogno?</label>
-          <textarea name="messaggio" id="contact-messaggio" placeholder="Descrivi brevemente il tuo progetto..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:0.9rem; padding:1.1rem;">
-          Invia messaggio →
-        </button>
-      </form>
     </div>
   </div>
 </section>
