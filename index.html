@@ -7,8 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Custom SVG cursors – arrow (default) and pointer (interactive) */
   *, *::before, *::after {
-    cursor: none !important;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23ff4d1c' d='M0 0 L28 0 L28 4 L12 4 L12 28 L8 28 L8 4 L0 4 Z'/%3E%3C/svg%3E") 0 0, auto;
+  }
+  a, button, [style*='cursor: pointer'] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23ff4d1c' d='M14 2 L18 2 L18 12 L24 12 L24 26 Q24 30 16 30 Q8 30 8 26 L8 12 L14 12 Z'/%3E%3C/svg%3E") 16 2, pointer;
   }
 
   :root {
@@ -27,32 +32,6 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* Custom cursor */
-  .cursor {
-    width: 12px; height: 12px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
-  }
-  .cursor-ring {
-    width: 40px; height: 40px;
-    border: 1px solid rgba(255,77,28,0.4);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
-  }
-  body:has(a:hover) .cursor, body:has(button:hover) .cursor {
-    width: 20px; height: 20px;
   }
 
   /* Nav */
@@ -155,7 +134,6 @@
     letter-spacing: 0.05em;
     text-decoration: none;
     transition: all 0.3s;
-    cursor: none;
   }
   .btn-primary {
     background: var(--accent);
@@ -284,7 +262,6 @@
     border: 1px solid var(--border);
     overflow: hidden;
     transition: border-color 0.3s;
-    cursor: none;
   }
   .project-card:hover { border-color: rgba(255,77,28,0.3); }
   .project-card.reverse { direction: rtl; }
@@ -633,7 +610,6 @@
     font-size: 0.85rem;
     font-weight: 400;
     border: none;
-    cursor: none;
     transition: background 0.3s, color 0.3s;
   }
   #cookie-banner .cookie-btn-accept {
@@ -654,9 +630,6 @@
 </style>
 </head>
 <body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
 
 <div id="cookie-banner" role="dialog" aria-label="Informativa cookie">
   <div class="cookie-banner-inner">
@@ -925,26 +898,6 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    setTimeout(() => {
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    }, 80);
-  });
-  document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-    ring.style.opacity = '1';
-  });
-  document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-    ring.style.opacity = '0';
-  });
-
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
