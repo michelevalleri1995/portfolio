@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { cursor: none; }
 
   :root {
     --black: #0a0a0a;
@@ -24,6 +25,31 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
+    cursor: none;
+  }
+
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,77,28,0.4);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+  }
+  body:has(a:hover) .cursor, body:has(button:hover) .cursor {
+    width: 20px; height: 20px;
   }
 
   /* Nav */
@@ -623,6 +649,9 @@
 </head>
 <body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
 <div id="cookie-banner" role="dialog" aria-label="Informativa cookie">
   <div class="cookie-banner-inner">
     <p class="cookie-banner-text">
@@ -791,6 +820,62 @@
       </div>
     </div>
 
+    <!-- Project 3 Fitness -->
+    <div class="project-card reverse reveal">
+      <div class="project-visual">
+        <div class="browser-mock">
+          <div class="browser-bar">
+            <div class="browser-dot" style="background:#ff5f57"></div>
+            <div class="browser-dot" style="background:#ffbd2e"></div>
+            <div class="browser-dot" style="background:#28c840"></div>
+            <div class="browser-url"></div>
+          </div>
+          <div class="browser-content" style="padding:0;overflow:hidden;">
+            <img src="img/mockup-fitness.svg" alt="ForgeFit Gym mockup" style="width:100%;height:auto;display:block;">
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-type">SITO VETRINA</div>
+        <div class="project-name">ForgeFit Gym</div>
+        <p class="project-desc">Sito per palestra ad alta intensità con programmi di allenamento, schede istruttori e sistema di prenotazione corsi online.</p>
+        <div class="project-tags">
+          <span class="tag">UI Design</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">Animazioni</span>
+        </div>
+        <a href="#" target="_blank" class="project-link">Vedi il progetto →</a>
+      </div>
+    </div>
+
+    <!-- Project 4 Fashion -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="browser-mock">
+          <div class="browser-bar">
+            <div class="browser-dot" style="background:#ff5f57"></div>
+            <div class="browser-dot" style="background:#ffbd2e"></div>
+            <div class="browser-dot" style="background:#28c840"></div>
+            <div class="browser-url"></div>
+          </div>
+          <div class="browser-content" style="padding:0;overflow:hidden;">
+            <img src="img/mockup-fashion.svg" alt="Velour Studio mockup" style="width:100%;height:auto;display:block;">
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-type">E-COMMERCE</div>
+        <div class="project-name">Velour Studio</div>
+        <p class="project-desc">Sito per brand di moda italiana con lookbook stagionale, schede prodotto e integrazione shop online.</p>
+        <div class="project-tags">
+          <span class="tag">Figma</span>
+          <span class="tag">E-commerce</span>
+          <span class="tag">UX Design</span>
+        </div>
+        <a href="#" target="_blank" class="project-link">Vedi il progetto →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -883,12 +968,31 @@
   <div>© 2026 — Michele Valleri. Tutti i diritti riservati.</div>
   <div>
     <a href="privacy-policy.html">Privacy Policy</a>
-    · <a href="cookie-policy.html">Cookie Policy</a>
     · <a href="terms-and-conditions.html">Termini e Condizioni</a>
     · Realizzato con ❤️ a Cenate Sopra
   </div>
 </footer>
 
+<script>
+  var cursor = document.getElementById('cursor');
+  var ring = document.getElementById('cursor-ring');
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(function() {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
+  });
+  document.addEventListener('mouseenter', function() {
+    cursor.style.opacity = '1';
+    ring.style.opacity = '1';
+  });
+  document.addEventListener('mouseleave', function() {
+    cursor.style.opacity = '0';
+    ring.style.opacity = '0';
+  });
+</script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
